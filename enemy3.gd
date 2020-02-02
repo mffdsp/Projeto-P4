@@ -1,17 +1,21 @@
 extends Area2D
 
-var base = Vector2(1084,  int(rand_range(0, 156)))
-var x_max = OS.window_size.x - 32;
-var x_min = 32;
+var x_max = OS.window_size.x - 64;
+var x_min = 64;
+var y_max = OS.window_size.y - 64
+var y_min = 64;
 onready var person = get_parent().get_node("person")
 
-var v =  Vector2(int(rand_range(-1200, -800)),0)
+var base = Vector2(int(rand_range(-1200, 60)),0)
+
+var v =  Vector2(int(rand_range(-300,-800)), int(rand_range(550, 900)))
 
 var tempo = 0
+
 func _ready():
 	set_position(base)
-	$AnimationPlayer.play("enemyA")
-	print("CRIOU")
+	
+	print("CRIOU a macon")
 	#connect("area_shape_entered", person, "colidiu")
 	pass
 

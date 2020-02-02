@@ -1,0 +1,43 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://enemy.gd" type="Script" id=1]
+[ext_resource path="res://sprites/alan_paladin_lance.png" type="Texture" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 54.1999, 20.0302 )
+
+[sub_resource type="Animation" id=2]
+resource_name = "enemyA"
+length = 0.45
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("alan_paladin_lance:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 4, 3, 2, 1, 0 ]
+}
+
+[node name="enemy" type="Area2D"]
+script = ExtResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 825.288, 379.656 )
+shape = SubResource( 1 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/enemyA = SubResource( 2 )
+
+[node name="alan_paladin_lance" type="Sprite" parent="."]
+position = Vector2( 838.172, 359.452 )
+scale = Vector2( 2.08018, 1.95706 )
+texture = ExtResource( 2 )
+hframes = 5
+frame = 2
+region_enabled = true
+region_rect = Rect2( 80.3652, 427.097, 393.416, 61.801 )
